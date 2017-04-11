@@ -7,7 +7,9 @@ class App extends Component {
         this.state = {
             userInfo: this.getUserInfo(),
             userProfile: this.getUserProfile(),
-            user_goal: this.getUserProfile().user_goal
+            user_goal: this.getUserProfile().user_goal,
+            month: new Date().toLocaleDateString(), //Mar
+            previous_month: new Date().toLocaleDateString(), //Feb
         }
     }
 
@@ -86,6 +88,169 @@ class App extends Component {
                                 </div>
                             </div>
                         </div>
+                        <div className="slide-2 w-slide">
+                            <div className="profile-top-dur">
+                                <div className="numbers-boss numbers-headline">
+                                    <div className="stats-description stats-headline-description">{this.state.month}</div>
+                                    <div className="stats-description stats-headline">Drill Duration min</div>
+                                    <div className="stats-description stats-headline-description">Avg {this.state.userProfile.avg_lifetime_duration}</div>
+                                </div>
+                                <div className="statline top"></div>
+                                <div className="stats-father">
+                                    <div className="dur-1 stat stat-dur" style={{height: this.state.userProfile.duration_heights[0]}}></div>
+                                    <div className="dur-2 stat stat-dur" style={{height: this.state.userProfile.duration_heights[1]}}></div>
+                                    <div className="dur-3 stat stat-dur" style={{height: this.state.userProfile.duration_heights[2]}}></div>
+                                    <div className="dur-4 stat stat-dur" style={{height: this.state.userProfile.duration_heights[3]}}></div>
+                                    <div className="dur-5 stat stat-dur" style={{height: this.state.userProfile.duration_heights[4]}}></div>
+                                    <div className="dur-6 stat stat-dur" style={{height: this.state.userProfile.duration_heights[5]}}></div>
+                                    <div className="dur-7 stat stat-dur" style={{height: this.state.userProfile.duration_heights[6]}}>
+                                        <div className="highest-dur highest-value statline">
+                                            <div className="longest-data stats-description">{this.state.userProfile.longest_workout} min</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="bottom statline"></div>
+                                <div className="numbers-father">
+                                    <div className="bottom-placeholder stats-description"></div>
+                                    <div className="numbers-boss">
+                                        <div className="number stats-x-axis">8</div>
+                                        <div className="number stats-x-axis">9</div>
+                                        <div className="number stats-x-axis">10</div>
+                                        <div className="number stats-x-axis">11</div>
+                                        <div className="number stats-x-axis">12</div>
+                                        <div className="number stats-x-axis">13</div>
+                                        <div className="number stats-x-axis">14</div>
+                                    </div>
+                                    <div className="bottom-placeholder stats-description"></div>
+                                </div>
+                            </div>
+                            <div className="profile-top-amt">
+                                <div className="numbers-boss numbers-headline">
+                                    <div className="stats-description stats-headline-description">{this.state.month}</div>
+                                    <div className="amt stats-description stats-headline">Drills Amount/week</div>
+                                    <div className="stats-description stats-headline-description">Avg {this.state.userProfile.weekly_avg_lifetime_amount}</div>
+                                </div>
+                                <div className="statline top"></div>
+                                <div className="amt-bars stats-father">
+                                    <div className="amt-1 stat stat-amt" style={{height: this.state.userProfile.amount_heights[0]}}></div>
+                                    <div className="amt-2 stat stat-amt" style={{height: this.state.userProfile.amount_heights[1]}}></div>
+                                    <div className="amt-3 stat stat-amt" style={{height: this.state.userProfile.amount_heights[2]}}>
+                                        <div className="highest-amt highest-value statline">
+                                            <div className="longest-data stats-description">{this.state.userProfile.monthly_max_amount} drills</div>
+                                        </div>
+                                    </div>
+                                    <div className="amt-4 stat stat-amt" style={{height: this.state.userProfile.amount_heights[3]}}></div>
+                                </div>
+                                <div className="bottom statline"></div>
+                                <div className="numbers-father">
+                                    <div className="bottom-placeholder left stats-description">{this.state.previous_month}/{this.state.month}</div>
+                                    <div className="amt-dates numbers-boss">
+                                        <div className="amt-dates number stats-x-axis">6-12</div>
+                                        <div className="amt-dates number stats-x-axis">13-19</div>
+                                        <div className="amt-dates number stats-x-axis">20-26</div>
+                                        <div className="amt-dates number stats-x-axis">27-2</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="profile-top-xp">
+                                <div className="numbers-boss numbers-headline">
+                                    <div className="stats-description stats-headline-description xphead">{this.state.month}</div>
+                                    <div className="stats-description stats-headline xpbars">Lvl {this.state.userProfile.workout_level}</div>
+                                    <div className="stats-description stats-headline-description xphead">{this.state.userProfile.ep}/{this.state.userProfile.of_ep}XP</div>
+                                </div>
+                                <div className="level-bar-small statline top"></div>
+                                <div className="statline top xp-small-bar"></div>
+                                <div className="stats-father xp-stats">
+                                    <div className="stat stat-xp xp-1" style={{height: this.state.userProfile.ep_heights[0]}} ></div>
+                                    <div className="stat stat-xp xp-2" style={{height: this.state.userProfile.ep_heights[1]}}></div>
+                                    <div className="stat stat-xp xp-3" style={{height: this.state.userProfile.ep_heights[2]}}></div>
+                                    <div className="stat stat-xp xp-4" style={{height: this.state.userProfile.ep_heights[3]}}></div>
+                                    <div className="stat stat-xp xp-5" style={{height: this.state.userProfile.ep_heights[4]}}>
+                                        <div className="highest-value highest-xp statline">
+                                            <div className="longest-data stats-description xp-longest">{this.state.userProfile.max_ep_this_week} XP</div>
+                                        </div>
+                                    </div>
+                                    <div className="stat stat-xp xp-6" style={{height: this.state.userProfile.ep_heights[5]}}></div>
+                                    <div className="stat stat-xp xp-7" style={{height: this.state.userProfile.ep_heights[6]}}></div>
+                                </div>
+                                <div className="bottom statline"></div>
+                                <div className="numbers-father">
+                                    <div className="bottom-placeholder stats-description"></div>
+                                    <div className="numbers-boss">
+                                        <div className="number stats-x-axis xpstat">8</div>
+                                        <div className="number stats-x-axis xpstat">9</div>
+                                        <div className="number stats-x-axis xpstat">10</div>
+                                        <div className="number stats-x-axis xpstat">11</div>
+                                        <div className="number stats-x-axis xpstat">12</div>
+                                        <div className="number stats-x-axis xpstat">13</div>
+                                        <div className="number stats-x-axis xpstat">14</div>
+                                    </div>
+                                    <div className="bottom-placeholder stats-description"></div>
+                                </div>
+                            </div>
+                            <div className="profile-bottom stats-bottom xp-bottom">
+                                <div className="placeholder stats-tabs"></div>
+                                <div className="stats-boss-xp">
+                                    <div className="number-of-supervisor stats-slide">
+                                        <div className="days-in number">{this.state.userProfile.ep_knowledge_ratio}%</div>
+                                        <div className="stats-description">knowledge</div>
+                                    </div>
+                                    <div className="number-of-supervisor stats-slide">
+                                        <div className="drills number">{this.state.userProfile.ep_drill_ratio}%</div>
+                                        <div className="stats-description">drills</div>
+                                    </div>
+                                    <div className="number-of-supervisor stats-slide">
+                                        <div className="drills number">{this.state.userProfile.ep_sharing_ratio}%</div>
+                                        <div className="stats-description">sharing</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="amt-bottom profile-bottom stats-bottom">
+                                <div className="placeholder stats-tabs"></div>
+                                <div className="stats-boss-amt">
+                                    <div className="number-of-supervisor stats-slide">
+                                        <div className="days-in number">{this.state.userProfile.lifetime_amount}</div>
+                                        <div className="stats-description">total</div>
+                                    </div>
+                                    <div className="number-of-supervisor stats-slide">
+                                        <div className="drills number">{this.state.userProfile.weekly_amount}</div>
+                                        <div className="stats-description">this week</div>
+                                    </div>
+                                    <div className="number-of-supervisor stats-slide">
+                                        <div className="drills number">{this.state.userProfile.avg_weekly_amount}</div>
+                                        <div className="stats-description">avg/week</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="dur-default-bottom profile-bottom stats-bottom">
+                                <div className="stats-tabs">
+                                    <div className="stat-button-bg tapped">
+                                        <div className="menubar-tapped-dur" data-ix="stats-menubar-dur">DUR</div>
+                                        <div className="menubar-tapped-amt" data-ix="stats-menubar-amt">AMT</div>
+                                        <div className="menubar-tapped-xp" data-ix="stats-menubar-xp">XP</div>
+                                    </div>
+                                    <div className="stat-button-bg">
+                                        <div className="stats-description stats-menubar">DUR</div>
+                                        <div className="stats-description stats-menubar">AMT</div>
+                                        <div className="stats-description stats-menubar">XP</div>
+                                    </div>
+                                </div>
+                                <div className="stats-boss-dur">
+                                    <div className="number-of-supervisor stats-slide">
+                                        <div className="days-in number">{this.state.userProfile.last_duration}</div>
+                                        <div className="stats-description">last drill</div>
+                                    </div>
+                                    <div className="number-of-supervisor stats-slide">
+                                        <div className="drills number">{this.state.userProfile.avg_duration_this_week}</div>
+                                        <div className="stats-description">week avg</div>
+                                    </div>
+                                    <div className="number-of-supervisor stats-slide">
+                                        <div className="drills number">{this.state.userProfile.avg_duration_this_month}</div>
+                                        <div className="stats-description">month avg</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div className="left-arrow-4 slide-2-button w-slider-arrow-left">
                         <div className="w-icon-slider-left"></div>
@@ -135,7 +300,30 @@ class App extends Component {
                 user_goal: "else",
                 created_at: "2017-04-06T21:36:17.970Z",
                 updated_at: "2017-04-06T21:36:17.970Z",
-                of_ep: 30
+
+
+                of_ep: 33,
+
+                avg_lifetime_duration: 33,
+                longest_workout: 66,
+                last_duration: 61,
+                avg_duration_this_week: 36,
+                avg_duration_this_month: 37,
+                duration_heights: [10,20,30,30,30,30,100],
+
+                weekly_avg_lifetime_amount: 2.7,
+                lifetime_amount: 18,
+                weekly_amount: 18,
+                avg_weekly_amount: 18,
+                amount_heights: [10,20,30,100],
+
+                monthly_max_amount: 4,
+                max_ep_this_week: 14,
+                ep_knowledge_ratio: 44,
+                ep_drill_ratio: 36,
+                ep_sharing_ratio: 22,
+                ep_heights: [10,20,30,30,30,30,100],
+
             };
     }
 }
