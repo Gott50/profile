@@ -36,10 +36,10 @@ class App extends Component {
                             </div>
                             <div className="lvl-boss">
                                 <div className="your-level">Lvl {this.state.userProfile.workout_level}:</div>
-                                <div className="xp">{this.state.userProfile.ep}/{this.state.userProfile.of_ep} XP</div>
+                                <div className="xp">{this.state.userProfile.ep}/{this.state.userProfile.ep_next_level} XP</div>
                             </div>
                             <div className="level-bar"
-                                 style={{width: 100 * this.state.userProfile.ep / this.state.userProfile.of_ep + "%"}}></div>
+                                 style={{width: 100 * this.state.userProfile.ep / this.state.userProfile.ep_next_level + "%"}}></div>
                             <div className="overview-slide profile-bottom">
                                 <div className="stats-boss w-container">
                                     <div className="number-of-supervisor">
@@ -93,7 +93,7 @@ class App extends Component {
                                 <div className="numbers-boss numbers-headline">
                                     <div className="stats-description stats-headline-description">{this.state.month}</div>
                                     <div className="stats-description stats-headline">Drill Duration min</div>
-                                    <div className="stats-description stats-headline-description">Avg {this.state.userProfile.avg_lifetime_duration}</div>
+                                    <div className="stats-description stats-headline-description">Avg {this.state.userProfile.duration_avg_lifetime}</div>
                                 </div>
                                 <div className="statline top"></div>
                                 <div className="stats-father">
@@ -105,7 +105,7 @@ class App extends Component {
                                     <div className="dur-6 stat stat-dur" style={{height: this.state.userProfile.duration_heights[5]}}></div>
                                     <div className="dur-7 stat stat-dur" style={{height: this.state.userProfile.duration_heights[6]}}>
                                         <div className="highest-dur highest-value statline">
-                                            <div className="longest-data stats-description">{this.state.userProfile.longest_workout} min</div>
+                                            <div className="longest-data stats-description">{this.state.userProfile.duration_max} min</div>
                                         </div>
                                     </div>
                                 </div>
@@ -128,7 +128,7 @@ class App extends Component {
                                 <div className="numbers-boss numbers-headline">
                                     <div className="stats-description stats-headline-description">{this.state.month}</div>
                                     <div className="amt stats-description stats-headline">Drills Amount/week</div>
-                                    <div className="stats-description stats-headline-description">Avg {this.state.userProfile.weekly_avg_lifetime_amount}</div>
+                                    <div className="stats-description stats-headline-description">Avg {this.state.userProfile.amount_avg_lifetime}</div>
                                 </div>
                                 <div className="statline top"></div>
                                 <div className="amt-bars stats-father">
@@ -136,7 +136,7 @@ class App extends Component {
                                     <div className="amt-2 stat stat-amt" style={{height: this.state.userProfile.amount_heights[1]}}></div>
                                     <div className="amt-3 stat stat-amt" style={{height: this.state.userProfile.amount_heights[2]}}>
                                         <div className="highest-amt highest-value statline">
-                                            <div className="longest-data stats-description">{this.state.userProfile.monthly_max_amount} drills</div>
+                                            <div className="longest-data stats-description">{this.state.userProfile.amount_max} drills</div>
                                         </div>
                                     </div>
                                     <div className="amt-4 stat stat-amt" style={{height: this.state.userProfile.amount_heights[3]}}></div>
@@ -156,7 +156,7 @@ class App extends Component {
                                 <div className="numbers-boss numbers-headline">
                                     <div className="stats-description stats-headline-description xphead">{this.state.month}</div>
                                     <div className="stats-description stats-headline xpbars">Lvl {this.state.userProfile.workout_level}</div>
-                                    <div className="stats-description stats-headline-description xphead">{this.state.userProfile.ep}/{this.state.userProfile.of_ep}XP</div>
+                                    <div className="stats-description stats-headline-description xphead">{this.state.userProfile.ep}/{this.state.userProfile.ep_next_level}XP</div>
                                 </div>
                                 <div className="level-bar-small statline top"></div>
                                 <div className="statline top xp-small-bar"></div>
@@ -167,7 +167,7 @@ class App extends Component {
                                     <div className="stat stat-xp xp-4" style={{height: this.state.userProfile.ep_heights[3]}}></div>
                                     <div className="stat stat-xp xp-5" style={{height: this.state.userProfile.ep_heights[4]}}>
                                         <div className="highest-value highest-xp statline">
-                                            <div className="longest-data stats-description xp-longest">{this.state.userProfile.max_ep_this_week} XP</div>
+                                            <div className="longest-data stats-description xp-longest">{this.state.userProfile.ep_max} XP</div>
                                         </div>
                                     </div>
                                     <div className="stat stat-xp xp-6" style={{height: this.state.userProfile.ep_heights[5]}}></div>
@@ -192,15 +192,15 @@ class App extends Component {
                                 <div className="placeholder stats-tabs"></div>
                                 <div className="stats-boss-xp">
                                     <div className="number-of-supervisor stats-slide">
-                                        <div className="days-in number">{this.state.userProfile.ep_knowledge_ratio}%</div>
+                                        <div className="days-in number">{this.state.userProfile.ep_knowledge}%</div>
                                         <div className="stats-description">knowledge</div>
                                     </div>
                                     <div className="number-of-supervisor stats-slide">
-                                        <div className="drills number">{this.state.userProfile.ep_drill_ratio}%</div>
+                                        <div className="drills number">{this.state.userProfile.ep_drill}%</div>
                                         <div className="stats-description">drills</div>
                                     </div>
                                     <div className="number-of-supervisor stats-slide">
-                                        <div className="drills number">{this.state.userProfile.ep_sharing_ratio}%</div>
+                                        <div className="drills number">{this.state.userProfile.ep_sharing}%</div>
                                         <div className="stats-description">sharing</div>
                                     </div>
                                 </div>
@@ -209,15 +209,15 @@ class App extends Component {
                                 <div className="placeholder stats-tabs"></div>
                                 <div className="stats-boss-amt">
                                     <div className="number-of-supervisor stats-slide">
-                                        <div className="days-in number">{this.state.userProfile.lifetime_amount}</div>
+                                        <div className="days-in number">{this.state.userProfile.amount_total}</div>
                                         <div className="stats-description">total</div>
                                     </div>
                                     <div className="number-of-supervisor stats-slide">
-                                        <div className="drills number">{this.state.userProfile.weekly_amount}</div>
+                                        <div className="drills number">{this.state.userProfile.amount_this_week}</div>
                                         <div className="stats-description">this week</div>
                                     </div>
                                     <div className="number-of-supervisor stats-slide">
-                                        <div className="drills number">{this.state.userProfile.avg_weekly_amount}</div>
+                                        <div className="drills number">{this.state.userProfile.amount_avg_week}</div>
                                         <div className="stats-description">avg/week</div>
                                     </div>
                                 </div>
@@ -237,15 +237,15 @@ class App extends Component {
                                 </div>
                                 <div className="stats-boss-dur">
                                     <div className="number-of-supervisor stats-slide">
-                                        <div className="days-in number">{this.state.userProfile.last_duration}</div>
+                                        <div className="days-in number">{this.state.userProfile.duration_last_drill}</div>
                                         <div className="stats-description">last drill</div>
                                     </div>
                                     <div className="number-of-supervisor stats-slide">
-                                        <div className="drills number">{this.state.userProfile.avg_duration_this_week}</div>
+                                        <div className="drills number">{this.state.userProfile.duration_week_avg}</div>
                                         <div className="stats-description">week avg</div>
                                     </div>
                                     <div className="number-of-supervisor stats-slide">
-                                        <div className="drills number">{this.state.userProfile.avg_duration_this_month}</div>
+                                        <div className="drills number">{this.state.userProfile.duration_month_avg}</div>
                                         <div className="stats-description">month avg</div>
                                     </div>
                                 </div>
@@ -302,28 +302,26 @@ class App extends Component {
                 updated_at: "2017-04-06T21:36:17.970Z",
 
 
-                of_ep: 33,
-
-                avg_lifetime_duration: 33,
-                longest_workout: 66,
-                last_duration: 61,
-                avg_duration_this_week: 36,
-                avg_duration_this_month: 37,
+                duration_avg_lifetime: 11,
+                duration_max: 12,
+                duration_last_drill: 13,
+                duration_week_avg: 14,
+                duration_month_avg: 15,
                 duration_heights: [10,20,30,30,30,30,100],
 
-                weekly_avg_lifetime_amount: 2.7,
-                lifetime_amount: 18,
-                weekly_amount: 18,
-                avg_weekly_amount: 18,
+                amount_avg_lifetime: 2.1,
+                amount_max: 22,
+                amount_total: 23,
+                amount_this_week: 24,
+                amount_avg_week: 25,
                 amount_heights: [10,20,30,100],
 
-                monthly_max_amount: 4,
-                max_ep_this_week: 14,
-                ep_knowledge_ratio: 44,
-                ep_drill_ratio: 36,
-                ep_sharing_ratio: 22,
+                ep_next_level: 31,
+                ep_max: 32,
+                ep_knowledge: 33,
+                ep_drill: 34,
+                ep_sharing: 35,
                 ep_heights: [10,20,30,30,30,30,100],
-
             };
     }
 }
