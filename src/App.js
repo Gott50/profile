@@ -8,9 +8,21 @@ class App extends Component {
             userInfo: this.getUserInfo(),
             userProfile: this.getUserProfile(),
             user_goal: this.getUserProfile().user_goal,
-            month: new Date().toLocaleDateString(), //Mar
-            previous_month: new Date().toLocaleDateString(), //Feb
+            month: this.shortMonth(new Date()),
+            previous_month: this.shortMonth(this.getPreviousMonth()),
         }
+    }
+
+    getPreviousMonth() {
+        let date = new Date();
+        date.setMonth(date.getMonth() - 1);
+        return date;
+    }
+
+    shortMonth(date) {
+        let monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+            "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        return monthNames[date.getMonth()];
     }
 
     handleSelect(event) {
