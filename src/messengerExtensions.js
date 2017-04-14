@@ -12,7 +12,7 @@ function doneLoading() {
         try {
             if (MessengerExtensions) resolve(MessengerExtensions);
             window.extAsyncInit = () => {
-                console.log("doneLoading")
+                console.log("doneLoading");
                 MessengerExtensions = window.MessengerExtensions;
                 resolve(window.MessengerExtensions);
             };
@@ -25,7 +25,7 @@ function doneLoading() {
 function getFeatures() {
     return doneLoading().then(extension =>
         extension.getSupportedFeatures(result =>
-            result.supported_features,
+                result.supported_features,
             err => new Error(err)));
 }
 
