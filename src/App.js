@@ -20,8 +20,8 @@ class App extends Component {
     }
 
     shortMonth(date) {
-        let monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
-            "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        let monthNames = ["Jan", "Feb", "Mar", "Apr", "May",
+            "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
         return monthNames[date.getMonth()];
     }
 
