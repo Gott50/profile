@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import "./webflow.css";
+import * as mE from "./messengerExtensions";
 
 class App extends Component {
     constructor(props, context) {
@@ -272,8 +273,8 @@ class App extends Component {
                     </div>
                     <div className="slide-nav-2 w-round w-slider-nav"></div>
                 </div>
-                <div className="placeholder-boss slide-trigger-button-boss"><a
-                    className="placeholder-button slide-2-button w-button"
+                <div className="placeholder-boss slide-trigger-button-boss">
+                    <a onClick={this.share.bind(this)} className="placeholder-button slide-2-button w-button"
                     href="#">Share</a>
                     <div className="slider-simulator"></div>
                     <div className="rights slide-2-button text-only-boss" data-ix="back-button-appear">
@@ -286,6 +287,12 @@ class App extends Component {
                 </div>
             </div>
         );
+    }
+
+    share(){
+        mE.share()
+            .then(err => console.log(err))
+            .catch(err => console.error(err))
     }
 
     getUserInfo() {
