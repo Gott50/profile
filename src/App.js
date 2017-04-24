@@ -381,13 +381,13 @@ class App extends Component {
                         "title": userInfo.first_name + " " + userInfo.last_name,
                         "subtitle": "This is Show and Tell",
                         "image_url": userInfo.profile_pic,
-                        "default_action": {
+                        "buttons": [{
                             "type": "web_url",
                             "title": "view Profile",
                             "url": document.URL,
                             "webview_height_ratio": "compact",
                             "messenger_extensions": true
-                        }
+                        }]
                     }]
                 }
             }
