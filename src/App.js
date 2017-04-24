@@ -379,7 +379,8 @@ class App extends Component {
                     "image_aspect_ratio": "square",
                     "elements": [{
                         "title": userInfo.first_name + " " + userInfo.last_name,
-                        "subtitle": "This is Show and Tell",
+                        "subtitle": "Show and Tell",
+                        "item_url": "",
                         "image_url": userInfo.profile_pic,
                         "buttons": [{
                             "type": "web_url",
