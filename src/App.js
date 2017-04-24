@@ -33,6 +33,7 @@ class App extends Component {
     }
 
     render() {
+        let levelInPercent = 100 * this.state.userProfile.ep / this.state.userProfile.ep_next_level;
         return (
             <div className="profile-content-parent">
                 <div className="profile-slider w-slider" data-animation="slide" data-duration="300"
@@ -52,7 +53,7 @@ class App extends Component {
                                 <div className="xp">{this.state.userProfile.ep}/{this.state.userProfile.ep_next_level} XP</div>
                             </div>
                             <div className="level-bar"
-                                 style={{width: 100 * this.state.userProfile.ep / this.state.userProfile.ep_next_level + "%"}}></div>
+                                 style={{width: levelInPercent + "%"}}></div>
                             <div className="overview-slide profile-bottom">
                                 <div className="stats-boss w-container">
                                     <div className="number-of-supervisor">
@@ -178,7 +179,8 @@ class App extends Component {
                                     <div className="stats-description stats-headline xpbars">Lvl {this.state.userProfile.workout_level}</div>
                                     <div className="stats-description stats-headline-description xphead">{this.state.userProfile.ep}/{this.state.userProfile.ep_next_level}XP</div>
                                 </div>
-                                <div className="level-bar-small statline top"></div>
+                                <div className="level-bar-small statline top"
+                                     style={{width: levelInPercent + "%"}}></div>
                                 <div className="statline top xp-small-bar"></div>
                                 <div className="stats-father xp-stats">
                                     <div className="stat stat-xp xp-1"
