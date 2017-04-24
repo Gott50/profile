@@ -325,11 +325,11 @@ class App extends Component {
     getUserProfile() {
         return this.props.userProfile ? this.props.userProfile :
             {
-                number_of_workouts: 0,
-                workout_level: 0,
-                ep: 0,
+                number_of_workouts: 1,
+                workout_level: 2,
+                ep: 3,
                 main_strength: "Starting",
-                days_being_on_fitness_journey: 0,
+                days_being_on_fitness_journey: 4,
                 subscribed: false,
                 user_goal: "else",
                 created_at: "2017-04-06T21:36:17.970Z",
