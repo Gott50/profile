@@ -116,9 +116,12 @@ class App extends Component {
                                     <div className="dur-4 stat stat-dur" style={{height: this.state.userProfile.duration_heights[3]}}></div>
                                     <div className="dur-5 stat stat-dur" style={{height: this.state.userProfile.duration_heights[4]}}></div>
                                     <div className="dur-6 stat stat-dur" style={{height: this.state.userProfile.duration_heights[5]}}></div>
-                                    <div className="dur-7 stat stat-dur" style={{height: this.state.userProfile.duration_heights[6]}}>
-                                        <div className="highest-dur highest-value statline">
-                                            <div className="longest-data stats-description">{this.state.userProfile.duration_max} min</div>
+                                    <div className="dur-7 stat stat-dur"
+                                         style={{height: this.state.userProfile.duration_heights[6]}}></div>
+                                    <div className="highest-dur highest-value statline">
+                                        <div
+                                            className="longest-data stats-description">{this.state.userProfile.duration_max}
+                                            min
                                         </div>
                                     </div>
                                 </div>
@@ -147,12 +150,16 @@ class App extends Component {
                                 <div className="amt-bars stats-father">
                                     <div className="amt-1 stat stat-amt" style={{height: this.state.userProfile.amount_heights[0]}}></div>
                                     <div className="amt-2 stat stat-amt" style={{height: this.state.userProfile.amount_heights[1]}}></div>
-                                    <div className="amt-3 stat stat-amt" style={{height: this.state.userProfile.amount_heights[2]}}>
-                                        <div className="highest-amt highest-value statline">
-                                            <div className="longest-data stats-description">{this.state.userProfile.amount_max} drills</div>
+                                    <div className="amt-3 stat stat-amt"
+                                         style={{height: this.state.userProfile.amount_heights[2]}}></div>
+                                    <div className="amt-4 stat stat-amt"
+                                         style={{height: this.state.userProfile.amount_heights[3]}}></div>
+                                    <div className="highest-amt highest-value statline">
+                                        <div
+                                            className="longest-data stats-description">{this.state.userProfile.amount_max}
+                                            drills
                                         </div>
                                     </div>
-                                    <div className="amt-4 stat stat-amt" style={{height: this.state.userProfile.amount_heights[3]}}></div>
                                 </div>
                                 <div className="bottom statline"></div>
                                 <div className="numbers-father">
@@ -174,17 +181,23 @@ class App extends Component {
                                 <div className="level-bar-small statline top"></div>
                                 <div className="statline top xp-small-bar"></div>
                                 <div className="stats-father xp-stats">
-                                    <div className="stat stat-xp xp-1" style={{height: this.state.userProfile.ep_heights[0]}} ></div>
+                                    <div className="stat stat-xp xp-1"
+                                         style={{height: this.state.userProfile.ep_heights[0]}}></div>
                                     <div className="stat stat-xp xp-2" style={{height: this.state.userProfile.ep_heights[1]}}></div>
                                     <div className="stat stat-xp xp-3" style={{height: this.state.userProfile.ep_heights[2]}}></div>
                                     <div className="stat stat-xp xp-4" style={{height: this.state.userProfile.ep_heights[3]}}></div>
-                                    <div className="stat stat-xp xp-5" style={{height: this.state.userProfile.ep_heights[4]}}>
-                                        <div className="highest-value highest-xp statline">
-                                            <div className="longest-data stats-description xp-longest">{this.state.userProfile.ep_max} XP</div>
+                                    <div className="stat stat-xp xp-5"
+                                         style={{height: this.state.userProfile.ep_heights[4]}}></div>
+                                    <div className="stat stat-xp xp-6"
+                                         style={{height: this.state.userProfile.ep_heights[5]}}></div>
+                                    <div className="stat stat-xp xp-7"
+                                         style={{height: this.state.userProfile.ep_heights[6]}}></div>
+                                    <div className="highest-value highest-xp statline">
+                                        <div
+                                            className="longest-data stats-description xp-longest">{this.state.userProfile.ep_max}
+                                            XP
                                         </div>
                                     </div>
-                                    <div className="stat stat-xp xp-6" style={{height: this.state.userProfile.ep_heights[5]}}></div>
-                                    <div className="stat stat-xp xp-7" style={{height: this.state.userProfile.ep_heights[6]}}></div>
                                 </div>
                                 <div className="bottom statline"></div>
                                 <div className="numbers-father">
