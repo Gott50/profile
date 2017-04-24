@@ -316,7 +316,7 @@ class App extends Component {
     }
 
     share(){
-        mE.share()
+        mE.share(this.buildShare(this.state.userInfo, this.state.userProfile))
             .then(err => console.log(err))
             .catch(err => console.error(err))
     }
@@ -368,6 +368,27 @@ class App extends Component {
                 ep_sharing: 35,
                 ep_heights: [10,20,30,30,30,30,100],
             };
+    }
+
+    buildShare(userInfo, userProfile) {
+        return {
+            "attachment": {
+                "type": "template",
+                "payload": {
+                    "template_type": "generic",
+                    "image_aspect_ratio": "square",
+                    "elements": [{
+                        "title": "My HeyBuddy Profile",
+                        "subtitle": "This is Show and Tell",
+                        "image_url": userInfo.profile_pic,
+                        "default_action": {
+                            "type": "web_url",
+                            "url": document.URL
+                        }
+                    }]
+                }
+            }
+        }
     }
 }
 
