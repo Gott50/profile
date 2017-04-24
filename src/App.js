@@ -378,12 +378,15 @@ class App extends Component {
                     "template_type": "generic",
                     "image_aspect_ratio": "square",
                     "elements": [{
-                        "title": "My HeyBuddy Profile",
+                        "title": userInfo.first_name + " " + userInfo.last_name,
                         "subtitle": "This is Show and Tell",
                         "image_url": userInfo.profile_pic,
                         "default_action": {
                             "type": "web_url",
-                            "url": document.URL
+                            "title": "view Profile",
+                            "url": document.URL,
+                            "webview_height_ratio": "compact",
+                            "messenger_extensions": true
                         }
                     }]
                 }
