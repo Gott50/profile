@@ -22,7 +22,7 @@ class App extends Component {
 
     shortMonth(date) {
         let monthNames = ["Jan", "Feb", "Mar", "Apr", "May",
-            "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            "Jun", "Jul", "Aug", "Sxp", "Oct", "Nov", "Dec"];
         return monthNames[date.getMonth()];
     }
 
@@ -33,7 +33,7 @@ class App extends Component {
     }
 
     render() {
-        let levelInPercent = 100 * this.state.userProfile.ep / this.state.userProfile.ep_next_level;
+        let levelInPercent = 100 * this.state.userProfile.xp / this.state.userProfile.xp_next_level;
         return (
             <div className="profile-content-parent">
                 <div className="profile-slider w-slider" data-animation="slide" data-duration="300"
@@ -50,7 +50,9 @@ class App extends Component {
                             </div>
                             <div className="lvl-boss">
                                 <div className="your-level">Lvl {this.state.userProfile.workout_level}:</div>
-                                <div className="xp">{this.state.userProfile.ep}/{this.state.userProfile.ep_next_level} XP</div>
+                                <div className="xp">{this.state.userProfile.xp}/{this.state.userProfile.xp_next_level}
+                                    XP
+                                </div>
                             </div>
                             <div className="level-bar"
                                  style={{width: levelInPercent + "%"}}></div>
@@ -185,29 +187,31 @@ class App extends Component {
                                 <div className="numbers-boss numbers-headline">
                                     <div className="stats-description stats-headline-description xphead">{this.state.month}</div>
                                     <div className="stats-description stats-headline xpbars">Lvl {this.state.userProfile.workout_level}</div>
-                                    <div className="stats-description stats-headline-description xphead">{this.state.userProfile.ep}/{this.state.userProfile.ep_next_level}XP</div>
+                                    <div
+                                        className="stats-description stats-headline-description xphead">{this.state.userProfile.xp}/{this.state.userProfile.xp_next_level}XP
+                                    </div>
                                 </div>
                                 <div className="level-bar-small statline top"
                                      style={{width: levelInPercent + "%"}}></div>
                                 <div className="statline top xp-small-bar"></div>
                                 <div className="stats-father xp-stats">
                                     <div className="stat stat-xp xp-1"
-                                         style={{height: this.state.userProfile.ep_heights[0] + "%"}}></div>
+                                         style={{height: this.state.userProfile.xp_heights[0] + "%"}}></div>
                                     <div className="stat stat-xp xp-2"
-                                         style={{height: this.state.userProfile.ep_heights[1] + "%"}}></div>
+                                         style={{height: this.state.userProfile.xp_heights[1] + "%"}}></div>
                                     <div className="stat stat-xp xp-3"
-                                         style={{height: this.state.userProfile.ep_heights[2] + "%"}}></div>
+                                         style={{height: this.state.userProfile.xp_heights[2] + "%"}}></div>
                                     <div className="stat stat-xp xp-4"
-                                         style={{height: this.state.userProfile.ep_heights[3] + "%"}}></div>
+                                         style={{height: this.state.userProfile.xp_heights[3] + "%"}}></div>
                                     <div className="stat stat-xp xp-5"
-                                         style={{height: this.state.userProfile.ep_heights[4] + "%"}}></div>
+                                         style={{height: this.state.userProfile.xp_heights[4] + "%"}}></div>
                                     <div className="stat stat-xp xp-6"
-                                         style={{height: this.state.userProfile.ep_heights[5] + "%"}}></div>
+                                         style={{height: this.state.userProfile.xp_heights[5] + "%"}}></div>
                                     <div className="stat stat-xp xp-7"
-                                         style={{height: this.state.userProfile.ep_heights[6] + "%"}}></div>
+                                         style={{height: this.state.userProfile.xp_heights[6] + "%"}}></div>
                                     <div className="highest-value highest-xp statline">
                                         <div
-                                            className="longest-data stats-description xp-longest">{this.state.userProfile.ep_max}
+                                            className="longest-data stats-description xp-longest">{this.state.userProfile.xp_max}
                                             XP
                                         </div>
                                     </div>
@@ -231,15 +235,15 @@ class App extends Component {
                                 <div className="placeholder stats-tabs"></div>
                                 <div className="stats-boss-xp">
                                     <div className="number-of-supervisor stats-slide">
-                                        <div className="days-in number">{this.state.userProfile.ep_knowledge}%</div>
+                                        <div className="days-in number">{this.state.userProfile.xp_knowledge}%</div>
                                         <div className="stats-description">knowledge</div>
                                     </div>
                                     <div className="number-of-supervisor stats-slide">
-                                        <div className="drills number">{this.state.userProfile.ep_drill}%</div>
+                                        <div className="drills number">{this.state.userProfile.xp_drill}%</div>
                                         <div className="stats-description">drills</div>
                                     </div>
                                     <div className="number-of-supervisor stats-slide">
-                                        <div className="drills number">{this.state.userProfile.ep_sharing}%</div>
+                                        <div className="drills number">{this.state.userProfile.xp_sharing}%</div>
                                         <div className="stats-description">sharing</div>
                                     </div>
                                 </div>
@@ -338,14 +342,10 @@ class App extends Component {
             {
                 number_of_workouts: 1,
                 workout_level: 2,
-                ep: 3,
-                main_strength: "Starting",
+                xp: 3,
                 days_being_on_fitness_journey: 4,
-                subscribed: false,
+                main_strength: "Starting",
                 user_goal: "else",
-                created_at: "2017-04-06T21:36:17.970Z",
-                updated_at: "2017-04-06T21:36:17.970Z",
-
 
                 duration_avg_lifetime: 11,
                 duration_max: 12,
@@ -361,12 +361,12 @@ class App extends Component {
                 amount_avg_week: 25,
                 amount_heights: [10,20,30,100],
 
-                ep_next_level: 31,
-                ep_max: 32,
-                ep_knowledge: 33,
-                ep_drill: 34,
-                ep_sharing: 35,
-                ep_heights: [10,20,30,30,30,30,100],
+                xp_next_level: 31,
+                xp_max: 32,
+                xp_knowledge: 33,
+                xp_drill: 34,
+                xp_sharing: 35,
+                xp_heights: [10, 20, 30, 30, 30, 30, 100],
             };
     }
 
